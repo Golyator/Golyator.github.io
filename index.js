@@ -64,6 +64,20 @@ scene.add(sphere);
 
 
 //planet
+const Planet = (speed, perihelion, aphelion, radius, detail, color) => {
+  let planet = {
+    speed: speed,
+    perihelion: perihelion,
+    aphelion: aphelion,
+    radius: radius,
+    detail: detail,
+    color: color
+  }
+  return planet;
+}
+
+const earth = new Planet();
+console.log(earth)
 const planetColor = new THREE.Color("#FDB813");
 const planetGeometry = new THREE.IcosahedronGeometry(3, 50);
 const planetMaterial = new THREE.MeshBasicMaterial({
