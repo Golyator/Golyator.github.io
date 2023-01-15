@@ -150,12 +150,12 @@ const orbit = {
 const animate = () => {
   requestAnimationFrame(animate);
   starMesh.rotation.y += 0.0003;
-  //sphere.rotation.y += 0.001;
+  sphere.rotation.y += 0.001;
   const distance = THREE.Math.lerp(perihelion, aphelion, Math.sin((Date.now()/30000) * (2 * Math.PI)));
   planet.position.x = distance * Math.cos((Date.now()/30000) * (2 * Math.PI));
   planet.position.z = distance * Math.sin((Date.now() / 30000) * (2 * Math.PI));
-  mars.position.x = distance * Math.cos((Date.now()/30000) * (2 * Math.PI));
-  mars.position.z = distance * Math.sin((Date.now()/30000) * (2 * Math.PI));
+  mars.mesh.position.x = distance * Math.cos((Date.now()/30000) * (2 * Math.PI));
+  mars.mesh.position.z = distance * Math.sin((Date.now()/30000) * (2 * Math.PI));
   planet.rotation.y += orbit.speed;
   renderer.render(scene, camera);
 
