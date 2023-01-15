@@ -160,7 +160,7 @@ const animate = () => {
 };
 
 function onDocumentMouseWheel( event ) {
-  const zoomMax = 1680;
+  const zoomMax = 2580;
   const zoomMin = 500;
   console.log(camera.position.z)
   camera.position.z = Math.min(Math.max(zoomMin,  camera.position.z - event.wheelDeltaY * 0.5), zoomMax);
