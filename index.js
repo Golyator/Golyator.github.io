@@ -67,13 +67,14 @@ scene.add(sun);
 //planet
 let planets = [];
 const Planet = class extends THREE.Object3D {
-  constructor(rotationspeed, perihelion, aphelion, radius, detail, distance, color, texture, scene, rotation, time, ring) {
+  constructor(rotationspeed, perihelion, aphelion, radius, detail, distance, color, texture, scene, rotation, time, ringSize) {
     super();
     this.rotationspeed = rotationspeed;
     this.perihelion = perihelion;
     this.aphelion = aphelion;
     this.distance = distance;
     this.time = time;
+    this.ringSize = ringSize;
     this.geometry = new THREE.IcosahedronGeometry(radius, detail);
     this.material = new THREE.MeshBasicMaterial({
       map: new THREE.TextureLoader().load('texture/'+texture),
@@ -87,7 +88,7 @@ const Planet = class extends THREE.Object3D {
     scene.add(this.mesh);
 
     if (ring > 0) {
-      this.ringGeometry = new THREE.TorusGeometry(radius + 10, ring, 16, 100);
+      this.ringGeometry = new THREE.TorusGeometry(radius + 10, this.ringSize, 16, 100);
       this.ringMaterial = new THREE.MeshBasicMaterial({
          color: 0xffffff,
          transparent: true,
@@ -110,7 +111,7 @@ const Planet = class extends THREE.Object3D {
     this.mesh.position.x = distance * Math.cos((Date.now()/this.time) * (2 * Math.PI));
     this.mesh.position.z = distance * Math.sin((Date.now()/this.time) * (2 * Math.PI));
     this.mesh.rotation.y += this.rotationspeed;
-    if (this.ring > 0) {
+    if (this.ringSize > 0) {
       this.ring.position.x = this.mesh.position.x;
       this.ring.position.z = this.mesh.position.z;
     }
