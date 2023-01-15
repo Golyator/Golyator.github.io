@@ -52,7 +52,7 @@ bloomComposer.addPass(bloomPass);
 const color = new THREE.Color("#FDB813");
 const geometry = new THREE.IcosahedronGeometry(327, 50);
 const material = new THREE.MeshBasicMaterial({
-  map: THREE.ImageUtils.TextureLoader("texture/sun.jpg"),
+  map: THREE.ImageUtils.loadTexture("texture/sun.jpg"),
   side: THREE.BackSide,
   transparent: true,
 });
@@ -75,7 +75,7 @@ const Planet = class extends THREE.Object3D {
     this.time = time;
     this.geometry = new THREE.IcosahedronGeometry(radius, detail);
     this.material = new THREE.MeshBasicMaterial({
-      map: THREE.ImageUtils.TextureLoader("texture/" + texture),
+      map: new THREE.TextureLoader().load('textures/'+texture),
       side: THREE.BackSide,
       transparent: false,
     });
@@ -104,7 +104,7 @@ const starGeometry = new THREE.SphereGeometry(4020, 164, 164);
 
 // galaxy material
 const starMaterial = new THREE.MeshBasicMaterial({
-  map: THREE.ImageUtils.TextureLoader("texture/galaxy1.png"),
+  map: THREE.ImageUtils.loadTexture("texture/galaxy1.png"),
   side: THREE.BackSide,
   transparent: true,
 });
