@@ -67,12 +67,13 @@ scene.add(sun);
 //planet
 let planets = [];
 const Planet = class extends THREE.Object3D {
-  constructor(speed, perihelion, aphelion, radius, detail, distance, color, texture, scene, rotation) {
+  constructor(speed, perihelion, aphelion, radius, detail, distance, color, texture, scene, rotation, time) {
     super();
     this.speed = speed;
     this.perihelion = perihelion;
     this.aphelion = aphelion;
     this.distance = distance;
+    this.time = time;
     this.geometry = new THREE.IcosahedronGeometry(radius, detail);
     this.material = new THREE.MeshBasicMaterial({
       map: THREE.ImageUtils.loadTexture("texture/" + texture),
@@ -87,16 +88,16 @@ const Planet = class extends THREE.Object3D {
     return this;
   }
   gravitate() {
-    let distance = THREE.Math.lerp(this.perihelion, this.aphelion, Math.sin((Date.now()/30000) * (2 * Math.PI)));
-    this.mesh.position.x = distance * Math.cos((Date.now()/30000) * (2 * Math.PI));
-    this.mesh.position.z = distance * Math.sin((Date.now() / 30000) * (2 * Math.PI));
+    let distance = THREE.Math.lerp(this.perihelion, this.aphelion, Math.sin((Date.now()/this.time) * (2 * Math.PI)));
+    this.mesh.position.x = distance * Math.cos((Date.now()/this.time) * (2 * Math.PI));
+    this.mesh.position.z = distance * Math.sin((Date.now()/this.time) * (2 * Math.PI));
     this.mesh.rotation.y += this.speed;
   }
 }
-const mars = new Planet(0.01, 1381, 1666, 4, 50, 100, "#FDB813", 'mars.jpg', scene, 0);
+const mars = new Planet(0.01, 1381, 1666, 4, 50, 100, "#FDB813", 'mars.jpg', scene, 0, 45000);
 planets.push(mars);
 
-const earth = new Planet(0.01, 1471, 1521, 6, 50, 150, "#FDB813", 'earth2.jpg', scene, 23.5);
+const earth = new Planet(0.01, 1471, 1521, 6, 50, 150, "#FDB813", 'earth2.jpg', scene, 23.5, 30000);
 planets.push(earth);
 
 // galaxy geometry
@@ -133,16 +134,6 @@ window.addEventListener(
   false
 );
 
-
-
-
-const perihelion = 930;
-const aphelion = 1000;
-const orbit = {
-  radius: 50,
-  speed: 0.01
-};
-
 //animation loop
 const animate = () => {
   requestAnimationFrame(animate);
@@ -152,7 +143,6 @@ const animate = () => {
     planet.gravitate();
   }
   renderer.render(scene, camera);
-
   camera.layers.set(1);
   bloomComposer.render();
 };
