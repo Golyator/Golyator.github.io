@@ -66,8 +66,9 @@ scene.add(sphere);
 
 //planet
 
-const Planet = class {
-  constructor(speed, perihelion, aphelion, radius, detail, distance, color, texture) {
+const Planet = class extends THREE.Object3D {
+  constructor(speed, perihelion, aphelion, radius, detail, distance, color, texture, scene) {
+    super();
     this.perihelion = perihelion;
     this.aphelion = aphelion;
     this.distance = distance;
@@ -77,15 +78,14 @@ const Planet = class {
       side: THREE.BackSide,
       transparent: true,
     });
-    this.sphere = new THREE.Mesh(this.geometry, this.material);
-    return this.sphere;
+    this.mesh = new THREE.Mesh(this.geometry, this.material);
+    this.mesh.position.set(0, 0, 0);
+    this.mesh.layers.set(1);
+    this.add(this.mesh);
+    scene.add(this);
   }
 }
 
-const mars = new Planet(0.01, 930, 1000, 150, 150, 150, "#FDB813", 'sun.jpg');
-mars.position.set(0, 0, 0);
-mars.layers.set(1);
-scene.add(mars);
 
 const planetColor = new THREE.Color("#FDB813");
 const planetGeometry = new THREE.IcosahedronGeometry(3, 50);
