@@ -61,30 +61,30 @@ const material = new THREE.MeshBasicMaterial({
 const sphere = new THREE.Mesh(geometry, material);
 sphere.position.set(0, 0, 0);
 sphere.layers.set(1);
-//scene.add(sphere);
+scene.add(sphere);
 */
 
 //planet
 
 const Planet = class {
-  constructor(speed, perihelion, aphelion, radius, detail, distance, color, texture, scene) {
+  constructor(speed, perihelion, aphelion, radius, detail, distance, color, texture) {
     this.perihelion = perihelion;
     this.aphelion = aphelion;
     this.distance = distance;
-    let geometry = new THREE.IcosahedronGeometry(radius, detail);
-    let material = new THREE.MeshBasicMaterial({
+    this.geometry = new THREE.IcosahedronGeometry(radius, detail);
+    this.material = new THREE.MeshBasicMaterial({
       map: THREE.ImageUtils.loadTexture("texture/" + texture),
       side: THREE.BackSide,
       transparent: true,
     });
-    let sphere = new THREE.Mesh(geometry, material);
-    sphere.position.set(0, 0, 0);
-    scene.add(sphere);
-    return sphere;
+    this.sphere = new THREE.Mesh(this.geometry, this.material);
+    return this.sphere;
   }
 }
 
-const mars = new Planet(0.01, 930, 1000, 100, 50, 150, "#FDB813", 'sun.jpg', scene);
+const mars = new Planet(0.01, 930, 1000, 100, 50, 150, "#FDB813", 'sun.jpg');
+mars.position.set(0, 0, 0);
+scene.add(mars);
 
 const planetColor = new THREE.Color("#FDB813");
 const planetGeometry = new THREE.IcosahedronGeometry(3, 50);
