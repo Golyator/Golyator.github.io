@@ -69,6 +69,7 @@ let planets = [];
 const Planet = class extends THREE.Object3D {
   constructor(speed, perihelion, aphelion, radius, detail, distance, color, texture, scene, rotation) {
     super();
+    this.speed = speed;
     this.perihelion = perihelion;
     this.aphelion = aphelion;
     this.distance = distance;
@@ -144,9 +145,10 @@ const animate = () => {
   const distance = THREE.Math.lerp(perihelion, aphelion, Math.sin((Date.now()/30000) * (2 * Math.PI)));
   earth.mesh.position.x = distance * Math.cos((Date.now()/30000) * (2 * Math.PI));
   earth.mesh.position.z = distance * Math.sin((Date.now() / 30000) * (2 * Math.PI));
+  earth.mesh.rotation.y += earth.speed;
   mars.mesh.position.x = distance * Math.cos((Date.now()/30000) * (2 * Math.PI));
   mars.mesh.position.z = distance * Math.sin((Date.now()/30000) * (2 * Math.PI));
-  planet.rotation.y += orbit.speed;
+
   renderer.render(scene, camera);
 
   camera.layers.set(1);
