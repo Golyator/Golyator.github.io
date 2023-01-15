@@ -94,8 +94,10 @@ const Planet = class extends THREE.Object3D {
     this.ring = new THREE.Mesh(this.ringGeometry, this.ringMaterial);
     this.ring.position.set(0, 0, 0);
     this.ring.rotation.x = Math.PI / 2;
+    this.ring.scale.set(1, 0.2, 1);
+    this.ring.rotation.z = Math.PI / 2;
     this.add(this.ring);
-    
+
     scene.add(this.mesh);
     return this;
   }
