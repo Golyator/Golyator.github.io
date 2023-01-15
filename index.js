@@ -66,17 +66,15 @@ scene.add(sphere);
 //planet
 const Planet = class {
   constructor(speed, perihelion, aphelion, radius, detail, distance, color) {
-    this.planet = {
-      speed: speed,
-      perihelion: perihelion,
-      aphelion: aphelion,
-      radius: radius,
-      detail: detail,
-      distance: distance,
-      color: color
-    }
+    this.planet.color = new THREE.Color(color);
+    console.log(this.planet)
     return this.planet;
   }
+
+  spawnPlanet() {
+    this.planetColor = new THREE.Color(this.planet.color);
+  }
+
 }
 
 const earth = new Planet(0.01, 930, 1000, 3, 50, 150, "#FDB813");
