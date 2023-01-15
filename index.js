@@ -79,7 +79,7 @@ planet.rotation.x =  23.5 * Math.PI/180;
 scene.add(planet);
 
 // galaxy geometry
-const starGeometry = new THREE.SphereGeometry(4020, 164, 164);
+const starGeometry = new THREE.SphereGeometry(2020, 164, 164);
 
 // galaxy material
 const starMaterial = new THREE.MeshBasicMaterial({
@@ -140,7 +140,7 @@ const animate = () => {
 };
 
 function onDocumentMouseWheel( event ) {
-  const zoomMax = 1980;
+  const zoomMax = 1680;
   const zoomMin = 500;
   console.log(camera.position.z)
   camera.position.z = Math.min(Math.max(zoomMin,  camera.position.z - event.wheelDeltaY * 0.05), zoomMax);
