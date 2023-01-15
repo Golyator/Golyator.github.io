@@ -87,7 +87,7 @@ const Planet = class extends THREE.Object3D {
     this.mesh.rotation.x = rotation * Math.PI / 180;
     scene.add(this.mesh);
 
-    if (ring > 0) {
+    if (this.ringSize > 0) {
       this.ringGeometry = new THREE.TorusGeometry(radius + 10, this.ringSize, 16, 100);
       this.ringMaterial = new THREE.MeshBasicMaterial({
          color: 0xffffff,
