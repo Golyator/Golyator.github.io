@@ -11,7 +11,7 @@ const canvas = document.getElementById("webgl");
 scene = new THREE.Scene();
 const fov = 50;
 const aspect = window.innerWidth / window.innerHeight;
-const near = 0.1;
+const near = 100;
 const far = 10000;
 
 //camera
@@ -150,7 +150,6 @@ const animate = () => {
 function onDocumentMouseWheel( event ) {
   const zoomMax = 4580;
   const zoomMin = 500;
-  console.log(camera.position.z)
   camera.position.z = Math.min(Math.max(zoomMin,  camera.position.z - event.wheelDeltaY * 0.5), zoomMax);
 }
 document.addEventListener( 'wheel', onDocumentMouseWheel, false );
