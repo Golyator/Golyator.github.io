@@ -82,8 +82,9 @@ const Planet = class {
   }
 }
 
-const mars = new Planet(0.01, 930, 1000, 100, 50, 150, "#FDB813", 'sun.jpg');
+const mars = new Planet(0.01, 930, 1000, 150, 150, 150, "#FDB813", 'sun.jpg');
 mars.position.set(0, 0, 0);
+console.log(mars);
 scene.add(mars);
 
 const planetColor = new THREE.Color("#FDB813");
