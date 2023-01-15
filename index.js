@@ -65,9 +65,9 @@ scene.add(sphere);
 
 
 //planet
-
+let planets = [];
 const Planet = class extends THREE.Object3D {
-  constructor(speed, perihelion, aphelion, radius, detail, distance, color, texture, scene) {
+  constructor(speed, perihelion, aphelion, radius, detail, distance, color, texture, scene, rotation) {
     super();
     this.perihelion = perihelion;
     this.aphelion = aphelion;
@@ -81,26 +81,16 @@ const Planet = class extends THREE.Object3D {
     this.mesh = new THREE.Mesh(this.geometry, this.material);
     this.mesh.position.set(0, 0, 0);
     this.mesh.layers.set(1);
+    this.mesh.rotation.x = rotation * Math.PI / 180;
     scene.add(this.mesh);
     return this;
   }
 }
-const mars = new Planet(0.01, 930, 1000, 150, 150, 150, "#FDB813", 'sun.jpg', scene);
+const mars = new Planet(0.01, 1381, 1666, 4, 50, 150, "#FDB813", 'mars.jpg', scene, 0);
+planets.push(mars);
 
-
-const planetColor = new THREE.Color("#FDB813");
-const planetGeometry = new THREE.IcosahedronGeometry(3, 50);
-const planetMaterial = new THREE.MeshBasicMaterial({
-  map: THREE.ImageUtils.loadTexture("texture/earth2.jpg"),
-  side: THREE.BackSide,
-  transparent: true,
-});
-
-const planet = new THREE.Mesh(planetGeometry, planetMaterial);
-planet.position.set(0, 0, 0);
-planet.layers.set(1);
-planet.rotation.x = 23.5 * Math.PI / 180;
-scene.add(planet);
+const earth = new Planet(0.01, 1471, 1521, 6, 50, 150, "#FDB813", 'earth2.jpg', scene, 23.5);
+planets.push(earth);
 
 // galaxy geometry
 const starGeometry = new THREE.SphereGeometry(2020, 164, 164);
@@ -152,8 +142,8 @@ const animate = () => {
   starMesh.rotation.y += 0.0003;
   sphere.rotation.y += 0.001;
   const distance = THREE.Math.lerp(perihelion, aphelion, Math.sin((Date.now()/30000) * (2 * Math.PI)));
-  planet.position.x = distance * Math.cos((Date.now()/30000) * (2 * Math.PI));
-  planet.position.z = distance * Math.sin((Date.now() / 30000) * (2 * Math.PI));
+  earth.mesh.position.x = distance * Math.cos((Date.now()/30000) * (2 * Math.PI));
+  earth.mesh.position.z = distance * Math.sin((Date.now() / 30000) * (2 * Math.PI));
   mars.mesh.position.x = distance * Math.cos((Date.now()/30000) * (2 * Math.PI));
   mars.mesh.position.z = distance * Math.sin((Date.now()/30000) * (2 * Math.PI));
   planet.rotation.y += orbit.speed;
