@@ -51,7 +51,7 @@ bloomComposer.addPass(bloomPass);
 
 //sun object
 const color = new THREE.Color("#FDB813");
-const geometry = new THREE.IcosahedronGeometry(327, 50);
+const geometry = new THREE.IcosahedronGeometry(1027, 50);
 const material = new THREE.MeshBasicMaterial({
   map: new THREE.TextureLoader().load("texture/sun.jpg"),
   side: THREE.BackSide,
@@ -99,6 +99,10 @@ planets.push(mars);
 
 const earth = new Planet(0.01, 1471, 1521, 60, 50, 150, "#FDB813", 'earth2.jpg', scene, 23.5, 30000);
 planets.push(earth);
+
+const jupiter = new Planet(0.01, 3780, 3170, 150, 50, 150, "#FDB813", 'jupiter.jpg', scene, 0, 300000);
+planets.push(jupiter);
+
 
 // galaxy geometry
 const starGeometry = new THREE.SphereGeometry(4020, 164, 164);
