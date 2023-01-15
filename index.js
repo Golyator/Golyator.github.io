@@ -94,13 +94,13 @@ const Planet = class extends THREE.Object3D {
     this.mesh.rotation.y += this.speed;
   }
 }
-const mars = new Planet(0.01, 2492, 2067, 40, 50, 100, "#FDB813", 'mars2.png', scene, 0, 62000);
+const mars = new Planet(0.01, 2492, 2067, 40, 50, 100, "#FDB813", 'mars2.png', scene, 25, 62000);
 planets.push(mars);
 
 const earth = new Planet(0.01, 1471, 1521, 60, 50, 150, "#FDB813", 'earth2.jpg', scene, 23.5, 30000);
 planets.push(earth);
 
-const jupiter = new Planet(0.01, 3780, 3170, 150, 50, 150, "#FDB813", 'jupiter.jpg', scene, 0, 300000);
+const jupiter = new Planet(0.01, 3780, 3170, 150, 50, 150, "#FDB813", 'jupiter.jpg', scene, 3.13, 300000);
 planets.push(jupiter);
 
 
@@ -147,6 +147,7 @@ let interval = 1 / 30;
 //animation loop
 const animate = () => {
   requestAnimationFrame(animate);
+  //fps cap
   delta += clock.getDelta();
   if (delta  > interval) {
       starMesh.rotation.y += 0.0003;
