@@ -67,7 +67,7 @@ scene.add(sun);
 //planet
 let planets = [];
 const Planet = class extends THREE.Object3D {
-  constructor(rotationspeed, perihelion, aphelion, radius, detail, distance, color, texture, scene, rotation, time) {
+  constructor(rotationspeed, perihelion, aphelion, radius, detail, distance, color, texture, scene, rotation, time, ring) {
     super();
     this.rotationspeed = rotationspeed;
     this.perihelion = perihelion;
@@ -86,12 +86,13 @@ const Planet = class extends THREE.Object3D {
     this.mesh.rotation.x = rotation * Math.PI / 180;
     scene.add(this.mesh);
 
-    this.ringGeometry = new THREE.TorusGeometry(radius + 40, 2, 16, 100);
+    this.ringGeometry = new THREE.TorusGeometry(radius + 10, ring, 16, 100);
     this.ringMaterial = new THREE.MeshBasicMaterial({
        color: 0xffffff,
        transparent: true,
        opacity: 0.5
     });
+
     this.ring = new THREE.Mesh(this.ringGeometry, this.ringMaterial);
     this.ring.position.set(0, 0, 0);
     this.ring.rotation.x = Math.PI / 2;
@@ -113,13 +114,13 @@ const Planet = class extends THREE.Object3D {
     this.ring.position.z = this.mesh.position.z;
   }
 }
-const mars = new Planet(0.01, 2492, 2067, 40, 50, 100, "#FDB813", 'mars2.png', scene, 25, 62000);
+const mars = new Planet(0.01, 2492, 2067, 40, 50, 100, "#FDB813", 'mars2.png', scene, 25, 62000, 0);
 planets.push(mars);
 
-const earth = new Planet(0.01, 1471, 1521, 60, 50, 150, "#FDB813", 'earth2.jpg', scene, 23.5, 30000);
+const earth = new Planet(0.01, 1471, 1521, 60, 50, 150, "#FDB813", 'earth2.jpg', scene, 23.5, 30000, 0);
 planets.push(earth);
 
-const jupiter = new Planet(0.01, 3780, 3170, 150, 50, 150, "#FDB813", 'jupiter.png', scene, 3.13, 300000);
+const jupiter = new Planet(0.01, 3780, 3170, 150, 50, 150, "#FDB813", 'jupiter.png', scene, 3.13, 300000, 40);
 planets.push(jupiter);
 
 
