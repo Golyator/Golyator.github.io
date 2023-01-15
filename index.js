@@ -58,10 +58,10 @@ const material = new THREE.MeshBasicMaterial({
   transparent: true,
 });
 
-const sphere = new THREE.Mesh(geometry, material);
-sphere.position.set(0, 0, 0);
-sphere.layers.set(1);
-scene.add(sphere);
+const sun = new THREE.Mesh(geometry, material);
+sun.position.set(0, 0, 0);
+sun.layers.set(1);
+scene.add(sun);
 
 
 //planet
@@ -147,12 +147,10 @@ const orbit = {
 const animate = () => {
   requestAnimationFrame(animate);
   starMesh.rotation.y += 0.0003;
-  sphere.rotation.y += 0.001;
-  const distance = THREE.Math.lerp(perihelion, aphelion, Math.sin((Date.now()/30000) * (2 * Math.PI)));
-  earth.gravitate();
-  mars.mesh.position.x = distance * Math.cos((Date.now()/30000) * (2 * Math.PI));
-  mars.mesh.position.z = distance * Math.sin((Date.now()/30000) * (2 * Math.PI));
-
+  sun.rotation.y += 0.001;
+  for (let planet of planets) {
+    planet.gravitate();
+  }
   renderer.render(scene, camera);
 
   camera.layers.set(1);
