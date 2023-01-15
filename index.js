@@ -52,7 +52,7 @@ bloomComposer.addPass(bloomPass);
 const color = new THREE.Color("#FDB813");
 const geometry = new THREE.IcosahedronGeometry(327, 50);
 const material = new THREE.MeshBasicMaterial({
-  map: THREE.ImageUtils.loadTexture("texture/sun.jpg"),
+  map: new THREE.TextureLoader().load("texture/sun.jpg"),
   side: THREE.BackSide,
   transparent: true,
 });
@@ -104,7 +104,7 @@ const starGeometry = new THREE.SphereGeometry(4020, 164, 164);
 
 // galaxy material
 const starMaterial = new THREE.MeshBasicMaterial({
-  map: THREE.ImageUtils.loadTexture("texture/galaxy1.png"),
+  map: new THREE.TextureLoader().load("texture/galaxy1.png"),
   side: THREE.BackSide,
   transparent: true,
 });
