@@ -67,9 +67,9 @@ scene.add(sun);
 //planet
 let planets = [];
 const Planet = class extends THREE.Object3D {
-  constructor(speed, perihelion, aphelion, radius, detail, distance, color, texture, scene, rotation, time) {
+  constructor(rotationspeed, perihelion, aphelion, radius, detail, distance, color, texture, scene, rotation, time) {
     super();
-    this.speed = speed;
+    this.rotationspeed = rotationspeed;
     this.perihelion = perihelion;
     this.aphelion = aphelion;
     this.distance = distance;
@@ -87,11 +87,12 @@ const Planet = class extends THREE.Object3D {
     scene.add(this.mesh);
     return this;
   }
+  
   gravitate() {
     let distance = THREE.Math.lerp(this.perihelion, this.aphelion, Math.sin((Date.now()/this.time) * (2 * Math.PI)));
     this.mesh.position.x = distance * Math.cos((Date.now()/this.time) * (2 * Math.PI));
     this.mesh.position.z = distance * Math.sin((Date.now()/this.time) * (2 * Math.PI));
-    this.mesh.rotation.y += this.speed;
+    this.mesh.rotation.y += this.rotationspeed;
   }
 }
 const mars = new Planet(0.01, 2492, 2067, 40, 50, 100, "#FDB813", 'mars2.png', scene, 25, 62000);
