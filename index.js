@@ -70,8 +70,8 @@ const Planet = class {
     this.perihelion = perihelion;
     this.aphelion = aphelion;
     this.distance = distance;
-    let geometry = new THREE.IcosahedronGeometry(radius, detail);
-    let material = new THREE.MeshBasicMaterial({
+    this.geometry = new THREE.IcosahedronGeometry(radius, detail);
+    this.material = new THREE.MeshBasicMaterial({
       map: THREE.ImageUtils.loadTexture("texture/" + texture),
       side: THREE.BackSide,
       transparent: true,
