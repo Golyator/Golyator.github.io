@@ -93,10 +93,10 @@ const Planet = class extends THREE.Object3D {
     this.mesh.rotation.y += this.speed;
   }
 }
-const mars = new Planet(0.01, 2492, 2067, 4, 50, 100, "#FDB813", 'mars2.jpg', scene, 0, 62000);
+const mars = new Planet(0.01, 2492, 2067, 40, 50, 100, "#FDB813", 'mars2.jpg', scene, 0, 62000);
 planets.push(mars);
 
-const earth = new Planet(0.01, 1471, 1521, 6, 50, 150, "#FDB813", 'earth2.jpg', scene, 23.5, 30000);
+const earth = new Planet(0.01, 1471, 1521, 60, 50, 150, "#FDB813", 'earth2.jpg', scene, 23.5, 30000);
 planets.push(earth);
 
 // galaxy geometry
