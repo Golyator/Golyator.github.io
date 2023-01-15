@@ -159,7 +159,7 @@ const animate = () => {
 function onDocumentMouseWheel( event ) {
   const zoomMax = 4580;
   const zoomMin = 500;
-  camera.position.z = Math.min(Math.max(zoomMin,  camera.position.z - event.wheelDeltaY * 0.5), zoomMax);
+  camera.position.y = Math.min(Math.max(zoomMin,  camera.position.z - event.wheelDeltaY * 0.5), zoomMax);
 }
 document.addEventListener( 'wheel', onDocumentMouseWheel, false );
 
@@ -177,7 +177,7 @@ document.addEventListener("touchmove", function(event) {
   const zoomMax = 4580;
   const zoomMin = 500;
   let deltaY = touchStartY - touchMoveY;
-  camera.position.z = Math.min(Math.max(zoomMin,  camera.position.z - deltaY * 0.5), zoomMax);
+  camera.position.y = Math.min(Math.max(zoomMin,  camera.position.z - deltaY * 0.5), zoomMax);
 }, false);
 
 animate();
