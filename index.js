@@ -79,11 +79,12 @@ const Planet = class {
     let sphere = new THREE.Mesh(geometry, material);
     sphere.position.set(0, 0, 0);
     scene.add(sphere);
+    console.log('ASLDNASIDHAOISD')
     return sphere;
   }
 }
 
-const mars = new Planet(0.01, 930, 1000, 100, 50, 150, "#FDB813", 'mars.jpg', scene);
+const mars = new Planet(0.01, 930, 1000, 100, 50, 150, "#FDB813", 'sun.jpg', scene);
 
 const planetColor = new THREE.Color("#FDB813");
 const planetGeometry = new THREE.IcosahedronGeometry(3, 50);
