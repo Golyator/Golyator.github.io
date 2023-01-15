@@ -112,6 +112,10 @@ window.addEventListener(
 );
 
 
+const orbit = {
+  radius: 10,
+  speed: 0.01
+};
 
 //animation loop
 const animate = () => {
@@ -121,8 +125,8 @@ const animate = () => {
   sphere.rotation.y += 0.001;
   sphere.rotation.x += 0.001;
   planet.rotation.y = (Date.now()/86,400) * (2 * Math.PI)
-  planet.position.x = Math.cos(Date.now()/10000)*100;
-  planet.position.y = Math.sin(Date.now()/10000)*100;
+  planet.position.x = Math.cos( (Date.now()/31557600) * (2 * Math.PI) ) * orbit.radius;
+  planet.position.y = Math.sin( (Date.now()/31557600) * (2 * Math.PI) ) * orbit.radius;
   camera.layers.set(1);
   bloomComposer.render();
 };
