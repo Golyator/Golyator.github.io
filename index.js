@@ -127,7 +127,6 @@ const animate = () => {
   requestAnimationFrame(animate);
   starMesh.rotation.y += 0.0003;
   sphere.rotation.y += 0.001;
-  sphere.rotation.x += 0.001;
   const distance = THREE.Math.lerp(perihelion, aphelion, Math.sin((Date.now()/30000) * (2 * Math.PI)));
   planet.position.x = distance * Math.cos((Date.now()/30000) * (2 * Math.PI));
   planet.position.z = distance * Math.sin((Date.now()/30000) * (2 * Math.PI));
