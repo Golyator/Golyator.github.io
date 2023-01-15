@@ -107,6 +107,8 @@ const Planet = class extends THREE.Object3D {
     this.mesh.position.x = distance * Math.cos((Date.now()/this.time) * (2 * Math.PI));
     this.mesh.position.z = distance * Math.sin((Date.now()/this.time) * (2 * Math.PI));
     this.mesh.rotation.y += this.rotationspeed;
+    this.ring.position.x = (distance + 0.2) * Math.cos((Date.now()/this.time) * (2 * Math.PI));
+    this.ring.position.z = (distance + 0.2) * Math.sin((Date.now()/this.time) * (2 * Math.PI));
   }
 }
 const mars = new Planet(0.01, 2492, 2067, 40, 50, 100, "#FDB813", 'mars2.png', scene, 25, 62000);
