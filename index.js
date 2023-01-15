@@ -153,13 +153,23 @@ function onDocumentMouseWheel( event ) {
   console.log(camera.position.z)
   camera.position.z = Math.min(Math.max(zoomMin,  camera.position.z - event.wheelDeltaY * 0.5), zoomMax);
 }
-if ('ongestureend' in document) {
-  // Add event listener for gestureend event (for mobile)
-  document.addEventListener("gestureend", function(event) {
-    const zoomMax = 280;
-    const zoomMin = 15;
-    camera.position.z = Math.min(Math.max(zoomMin,  camera.position.z - event.scale * 0.05), zoomMax);
-  }, false);
-}
 document.addEventListener( 'wheel', onDocumentMouseWheel, false );
+
+let touchStartY;
+let touchMoveY;
+
+// Add event listener for touchstart event
+document.addEventListener("touchstart", function(event) {
+  touchStartY = event.touches[0].clientY;
+}, false);
+
+// Add event listener for touchmove event
+document.addEventListener("touchmove", function(event) {
+  touchMoveY = event.touches[0].clientY;
+  const zoomMax = 280;
+  const zoomMin = 15;
+  let deltaY = touchStartY - touchMoveY;
+  camera.position.z = Math.min(Math.max(zoomMin,  camera.position.z + deltaY * 0.05), zoomMax);
+}, false);
+
 animate();
