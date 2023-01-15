@@ -77,7 +77,7 @@ const Planet = class extends THREE.Object3D {
     this.material = new THREE.MeshBasicMaterial({
       map: THREE.ImageUtils.loadTexture("texture/" + texture),
       side: THREE.BackSide,
-      transparent: true,
+      transparent: false,
     });
     this.mesh = new THREE.Mesh(this.geometry, this.material);
     this.mesh.position.set(0, 0, 0);
