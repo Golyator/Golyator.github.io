@@ -1,7 +1,7 @@
-import * as THREE from "modules/three/build/three.module.js";
-import { EffectComposer } from "modules/three/examples/jsm/postprocessing/EffectComposer.js";
-import { RenderPass } from "modules/three/examples/jsm/postprocessing/RenderPass.js";
-import { UnrealBloomPass } from "modules/three/examples/jsm/postprocessing/UnrealBloomPass.js";
+import * as THREE from "./modules/three/build/three.module.js";
+import { EffectComposer } from "./modules/three/examples/jsm/postprocessing/EffectComposer.js";
+import { RenderPass } from "./modules/three/examples/jsm/postprocessing/RenderPass.js";
+import { UnrealBloomPass } from "./modules/three/examples/jsm/postprocessing/UnrealBloomPass.js";
 
 //global declaration
 let scene;
