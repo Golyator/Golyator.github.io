@@ -87,7 +87,7 @@ const Planet = class extends THREE.Object3D {
     scene.add(this.mesh);
     return this;
   }
-  
+
   gravitate() {
     let distance = THREE.Math.lerp(this.perihelion, this.aphelion, Math.sin((Date.now()/this.time) * (2 * Math.PI)));
     this.mesh.position.x = distance * Math.cos((Date.now()/this.time) * (2 * Math.PI));
@@ -162,6 +162,7 @@ const animate = () => {
   }
 };
 
+//controls
 function onDocumentMouseWheel( event ) {
   const zoomMax = 8580;
   const zoomMin = 500;
