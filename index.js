@@ -98,7 +98,8 @@ const planetMaterial = new THREE.MeshBasicMaterial({
 const planet = new THREE.Mesh(planetGeometry, planetMaterial);
 planet.position.set(0, 0, 0);
 planet.layers.set(1);
-planet.rotation.x =  23.5 * Math.PI/180;
+planet.rotation.x = 23.5 * Math.PI / 180;
+console.log(planet)
 scene.add(planet);
 
 // galaxy geometry
