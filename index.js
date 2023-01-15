@@ -18,7 +18,7 @@ const far = 2000;
 camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
 camera.position.z = 8;
 camera.position.x = 0;
-camera.position.z = 25;
+camera.position.z = 50;
 scene.add(camera);
 
 //default renderer
@@ -50,7 +50,7 @@ bloomComposer.addPass(bloomPass);
 
 //sun object
 const color = new THREE.Color("#FDB813");
-const geometry = new THREE.IcosahedronGeometry(10, 50);
+const geometry = new THREE.IcosahedronGeometry(327, 50);
 const material = new THREE.MeshBasicMaterial({
   map: THREE.ImageUtils.loadTexture("texture/sun.jpg"),
   side: THREE.BackSide,
@@ -79,7 +79,7 @@ planet.rotation.x =  23.5 * Math.PI/180;
 scene.add(planet);
 
 // galaxy geometry
-const starGeometry = new THREE.SphereGeometry(220, 164, 164);
+const starGeometry = new THREE.SphereGeometry(1020, 164, 164);
 
 // galaxy material
 const starMaterial = new THREE.MeshBasicMaterial({
@@ -140,8 +140,8 @@ const animate = () => {
 };
 
 function onDocumentMouseWheel( event ) {
-  const zoomMax = 280;
-  const zoomMin = 15;
+  const zoomMax = 580;
+  const zoomMin = 35;
   console.log(camera.position.z)
   camera.position.z = Math.min(Math.max(zoomMin,  camera.position.z - event.wheelDeltaY * 0.05), zoomMax);
 }
