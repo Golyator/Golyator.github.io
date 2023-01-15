@@ -79,6 +79,7 @@ const Planet = class {
     let sphere = new THREE.Mesh(geometry, material);
     sphere.position.set(0, 0, 0);
     scene.add(sphere);
+    return sphere;
   }
 }
 
