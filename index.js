@@ -81,8 +81,8 @@ const Planet = class extends THREE.Object3D {
     this.mesh = new THREE.Mesh(this.geometry, this.material);
     this.mesh.position.set(0, 0, 0);
     this.mesh.layers.set(1);
-    this.add(this.mesh);
-    scene.add(this);
+    scene.add(this.mesh);
+    return this;
   }
 }
 const mars = new Planet(0.01, 930, 1000, 150, 150, 150, "#FDB813", 'sun.jpg', scene);
