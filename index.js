@@ -83,7 +83,8 @@ const Planet = class {
   }
 }
 
-
+const earth = new Planet(0.01, 930, 1000, 5, 50, 150, "#FDB813", 'sun2.jpg');
+console.log(earth)
 const planetColor = new THREE.Color("#FDB813");
 const planetGeometry = new THREE.IcosahedronGeometry(3, 50);
 const planetMaterial = new THREE.MeshBasicMaterial({
