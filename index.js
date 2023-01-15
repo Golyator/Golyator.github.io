@@ -113,7 +113,7 @@ window.addEventListener(
 
 
 const orbit = {
-  radius: 10,
+  radius: 50,
   speed: 0.01
 };
 
