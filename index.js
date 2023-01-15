@@ -16,9 +16,9 @@ const far = 10000;
 
 //camera
 camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
-camera.position.z = 8;
 camera.position.x = 0;
 camera.position.z = 850;
+camera.rotation.y = 90 * Math.PI / 180;
 scene.add(camera);
 
 //default renderer
