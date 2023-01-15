@@ -18,7 +18,7 @@ const far = 10000;
 camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
 camera.position.x = 0;
 camera.position.z = 0;
-camera.position.y = 850;
+camera.position.y = 1850;
 camera.rotation.x = -90 * Math.PI / 180;
 scene.add(camera);
 
@@ -157,7 +157,7 @@ const animate = () => {
 };
 
 function onDocumentMouseWheel( event ) {
-  const zoomMax = 4580;
+  const zoomMax = 8580;
   const zoomMin = 500;
   camera.position.y = Math.min(Math.max(zoomMin,  camera.position.y - event.wheelDeltaY * 0.5), zoomMax);
 }
@@ -174,7 +174,7 @@ document.addEventListener("touchstart", function(event) {
 // Add event listener for touchmove event
 document.addEventListener("touchmove", function(event) {
   touchMoveY = event.touches[0].clientY;
-  const zoomMax = 4580;
+  const zoomMax = 8580;
   const zoomMin = 500;
   let deltaY = touchStartY - touchMoveY;
   camera.position.y = Math.min(Math.max(zoomMin,  camera.position.y - deltaY * 0.5), zoomMax);
