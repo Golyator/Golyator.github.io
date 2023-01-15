@@ -100,7 +100,7 @@ planets.push(mars);
 const earth = new Planet(0.01, 1471, 1521, 60, 50, 150, "#FDB813", 'earth2.jpg', scene, 23.5, 30000);
 planets.push(earth);
 
-const jupiter = new Planet(0.01, 3780, 3170, 150, 50, 150, "#FDB813", 'jupiter.jpg', scene, 3.13, 300000);
+const jupiter = new Planet(0.01, 3780, 3170, 150, 50, 150, "#FDB813", 'jupiter.png', scene, 3.13, 300000);
 planets.push(jupiter);
 
 
