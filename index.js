@@ -76,15 +76,15 @@ const Planet = class {
       side: THREE.BackSide,
       transparent: true,
     });
-    let sphere = new THREE.Mesh(this.geometry, this.material);
-    sphere.position.set(0, 0, 0);
-    layers.set(1);
-    scene.add(sphere);
+    this.sphere = new THREE.Mesh(this.geometry, this.material);
+    this.sphere.position.set(0, 0, 0);
+    return this.sphere;
   }
 }
 
 const earth = new Planet(0.01, 930, 1000, 5, 50, 150, "#FDB813", 'sun2.jpg');
-console.log(earth)
+scene.add(earth);
+
 const planetColor = new THREE.Color("#FDB813");
 const planetGeometry = new THREE.IcosahedronGeometry(3, 50);
 const planetMaterial = new THREE.MeshBasicMaterial({
