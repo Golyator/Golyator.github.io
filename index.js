@@ -113,6 +113,10 @@ window.addEventListener(
 );
 
 
+
+
+const perihelion = 93;
+const aphelion = 100;
 const orbit = {
   radius: 50,
   speed: 0.01
@@ -125,9 +129,12 @@ const animate = () => {
   starMesh.rotation.y += 0.0003;
   sphere.rotation.y += 0.001;
   sphere.rotation.x += 0.001;
-  planet.rotation.y = (Date.now() / 30000) * (2 * Math.PI);
-  planet.position.x = Math.cos( (Date.now()/30000) * (2 * Math.PI) ) * orbit.radius;
-  planet.position.y = Math.sin( (Date.now()/30000) * (2 * Math.PI) ) * orbit.radius;
+  const distance = THREE.Math.lerp(perihelion, aphelion, Math.sin((Date.now()/30000) * (2 * Math.PI)));
+  planet.position.x = distance * Math.cos((Date.now()/30000) * (2 * Math.PI));
+  planet.position.z = distance * Math.sin((Date.now()/30000) * (2 * Math.PI));
+  planet.rotation.y += orbit.speed;
+  renderer.render(scene, camera);
+
   camera.layers.set(1);
   bloomComposer.render();
 };
