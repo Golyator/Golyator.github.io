@@ -49,6 +49,7 @@ bloomComposer.addPass(renderScene);
 bloomComposer.addPass(bloomPass);
 
 //sun object
+/*
 const color = new THREE.Color("#FDB813");
 const geometry = new THREE.IcosahedronGeometry(327, 50);
 const material = new THREE.MeshBasicMaterial({
@@ -61,7 +62,7 @@ const sphere = new THREE.Mesh(geometry, material);
 sphere.position.set(0, 0, 0);
 sphere.layers.set(1);
 //scene.add(sphere);
-
+*/
 
 //planet
 
@@ -79,7 +80,6 @@ const Planet = class {
     let sphere = new THREE.Mesh(geometry, material);
     sphere.position.set(0, 0, 0);
     scene.add(sphere);
-    console.log('ASLDNASIDHAOISD')
     return sphere;
   }
 }
@@ -148,7 +148,7 @@ const orbit = {
 const animate = () => {
   requestAnimationFrame(animate);
   starMesh.rotation.y += 0.0003;
-  sphere.rotation.y += 0.001;
+  //sphere.rotation.y += 0.001;
   const distance = THREE.Math.lerp(perihelion, aphelion, Math.sin((Date.now()/30000) * (2 * Math.PI)));
   planet.position.x = distance * Math.cos((Date.now()/30000) * (2 * Math.PI));
   planet.position.z = distance * Math.sin((Date.now()/30000) * (2 * Math.PI));
