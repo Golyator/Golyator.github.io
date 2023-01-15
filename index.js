@@ -120,9 +120,9 @@ const animate = () => {
   starMesh.rotation.y += 0.0003;
   sphere.rotation.y += 0.001;
   sphere.rotation.x += 0.001;
-  planet.rotation.y += 0.008;
-  planet.rotation.x += 0.002;
-  planet.rotation.y = (Date.now()/86400) * (2 * Math.PI)
+  planet.rotation.y = (Date.now()/86,400) * (2 * Math.PI)
+  planet.position.x = Math.cos(Date.now()/10000)*100;
+  planet.position.y = Math.sin(Date.now()/10000)*100;
   camera.layers.set(1);
   bloomComposer.render();
 };
