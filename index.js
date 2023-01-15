@@ -166,8 +166,8 @@ document.addEventListener("touchstart", function(event) {
 // Add event listener for touchmove event
 document.addEventListener("touchmove", function(event) {
   touchMoveY = event.touches[0].clientY;
-  const zoomMax = 280;
-  const zoomMin = 15;
+  const zoomMax = 4580;
+  const zoomMin = 500;
   let deltaY = touchStartY - touchMoveY;
   camera.position.z = Math.min(Math.max(zoomMin,  camera.position.z + deltaY * 0.05), zoomMax);
 }, false);
