@@ -12,7 +12,7 @@ scene = new THREE.Scene();
 const fov = 50;
 const aspect = window.innerWidth / window.innerHeight;
 const near = 0.1;
-const far = 8000;
+const far = 10000;
 
 //camera
 camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
@@ -101,7 +101,7 @@ const earth = new Planet(0.01, 1471, 1521, 6, 50, 150, "#FDB813", 'earth2.jpg', 
 planets.push(earth);
 
 // galaxy geometry
-const starGeometry = new THREE.SphereGeometry(2020, 164, 164);
+const starGeometry = new THREE.SphereGeometry(4020, 164, 164);
 
 // galaxy material
 const starMaterial = new THREE.MeshBasicMaterial({
@@ -148,7 +148,7 @@ const animate = () => {
 };
 
 function onDocumentMouseWheel( event ) {
-  const zoomMax = 2580;
+  const zoomMax = 4580;
   const zoomMin = 500;
   console.log(camera.position.z)
   camera.position.z = Math.min(Math.max(zoomMin,  camera.position.z - event.wheelDeltaY * 0.5), zoomMax);
