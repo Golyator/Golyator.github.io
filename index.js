@@ -60,7 +60,7 @@ const material = new THREE.MeshBasicMaterial({
 const sphere = new THREE.Mesh(geometry, material);
 sphere.position.set(0, 0, 0);
 sphere.layers.set(1);
-scene.add(sphere);
+//scene.add(sphere);
 
 
 //planet
