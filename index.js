@@ -125,7 +125,7 @@ const orbit = {
 //animation loop
 const animate = () => {
   requestAnimationFrame(animate);
-  starMesh.rotation.x += 0.0003;
+  starMesh.rotation.y += 0.0003;
   sphere.rotation.y += 0.001;
   sphere.rotation.x += 0.001;
   const distance = THREE.Math.lerp(perihelion, aphelion, Math.sin((Date.now()/30000) * (2 * Math.PI)));
