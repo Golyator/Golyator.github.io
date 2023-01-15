@@ -143,7 +143,7 @@ function onDocumentMouseWheel( event ) {
   const zoomMax = 1680;
   const zoomMin = 500;
   console.log(camera.position.z)
-  camera.position.z = Math.min(Math.max(zoomMin,  camera.position.z - event.wheelDeltaY * 0.05), zoomMax);
+  camera.position.z = Math.min(Math.max(zoomMin,  camera.position.z - event.wheelDeltaY * 0.5), zoomMax);
 }
 document.addEventListener( 'wheel', onDocumentMouseWheel, false );
 animate();
