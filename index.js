@@ -85,6 +85,7 @@ const Planet = class extends THREE.Object3D {
     scene.add(this);
   }
 }
+const mars = new Planet(0.01, 930, 1000, 150, 150, 150, "#FDB813", 'sun.jpg', scene);
 
 
 const planetColor = new THREE.Color("#FDB813");
