@@ -124,7 +124,7 @@ const animate = () => {
   starMesh.rotation.y += 0.0003;
   sphere.rotation.y += 0.001;
   sphere.rotation.x += 0.001;
-  planet.rotation.y = (Date.now()/86,400) * (2 * Math.PI)
+  planet.rotation.y = (Date.now()/30000) * (2 * Math.PI)
   planet.position.x = Math.cos( (Date.now()/31557600) * (2 * Math.PI) ) * orbit.radius;
   planet.position.y = Math.sin( (Date.now()/31557600) * (2 * Math.PI) ) * orbit.radius;
   camera.layers.set(1);
