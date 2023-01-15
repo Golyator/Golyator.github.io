@@ -186,7 +186,7 @@ const animate = () => {
 
 //controls
 function onDocumentMouseWheel( event ) {
-  const zoomMax = 8580;
+  const zoomMax = 12580;
   const zoomMin = 500;
   camera.position.y = Math.min(Math.max(zoomMin,  camera.position.y - event.wheelDeltaY * 0.5), zoomMax);
 }
@@ -203,7 +203,7 @@ document.addEventListener("touchstart", function(event) {
 // Add event listener for touchmove event
 document.addEventListener("touchmove", function(event) {
   touchMoveY = event.touches[0].clientY;
-  const zoomMax = 8580;
+  const zoomMax = 12580;
   const zoomMin = 500;
   let deltaY = touchStartY - touchMoveY;
   camera.position.y = Math.min(Math.max(zoomMin,  camera.position.y - deltaY * 0.5), zoomMax);
