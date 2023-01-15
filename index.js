@@ -49,7 +49,6 @@ bloomComposer.addPass(renderScene);
 bloomComposer.addPass(bloomPass);
 
 //sun object
-
 const color = new THREE.Color("#FDB813");
 const geometry = new THREE.IcosahedronGeometry(327, 50);
 const material = new THREE.MeshBasicMaterial({
@@ -134,17 +133,26 @@ window.addEventListener(
   false
 );
 
+//set clock
+let clock = new THREE.Clock();
+let delta = 0;
+// 30 fps
+let interval = 1 / 30;
+
 //animation loop
 const animate = () => {
   requestAnimationFrame(animate);
-  starMesh.rotation.y += 0.0003;
-  sun.rotation.y += 0.001;
-  for (let planet of planets) {
-    planet.gravitate();
+  delta += clock.getDelta();
+  if (delta  > interval) {
+      starMesh.rotation.y += 0.0003;
+      sun.rotation.y += 0.001;
+      for (let planet of planets) {
+        planet.gravitate();
+      }
+      renderer.render(scene, camera);
+      camera.layers.set(1);
+      bloomComposer.render();
   }
-  renderer.render(scene, camera);
-  camera.layers.set(1);
-  bloomComposer.render();
 };
 
 function onDocumentMouseWheel( event ) {
