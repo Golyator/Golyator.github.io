@@ -84,7 +84,7 @@ const Planet = class {
 
 const mars = new Planet(0.01, 930, 1000, 150, 150, 150, "#FDB813", 'sun.jpg');
 mars.position.set(0, 0, 0);
-console.log(mars);
+mars.layers.set(1);
 scene.add(mars);
 
 const planetColor = new THREE.Color("#FDB813");
@@ -99,7 +99,6 @@ const planet = new THREE.Mesh(planetGeometry, planetMaterial);
 planet.position.set(0, 0, 0);
 planet.layers.set(1);
 planet.rotation.x = 23.5 * Math.PI / 180;
-console.log(planet)
 scene.add(planet);
 
 // galaxy geometry
