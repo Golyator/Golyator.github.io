@@ -75,7 +75,7 @@ const Planet = class extends THREE.Object3D {
     this.time = time;
     this.geometry = new THREE.IcosahedronGeometry(radius, detail);
     this.material = new THREE.MeshBasicMaterial({
-      map: new THREE.TextureLoader().load('textures/'+texture),
+      map: new THREE.TextureLoader().load('texture/'+texture),
       side: THREE.BackSide,
       transparent: false,
     });
