@@ -64,19 +64,22 @@ scene.add(sphere);
 
 
 //planet
-const Planet = (speed, perihelion, aphelion, radius, detail, color) => {
-  let planet = {
-    speed: speed,
-    perihelion: perihelion,
-    aphelion: aphelion,
-    radius: radius,
-    detail: detail,
-    color: color
+const Planet = class {
+  constructor(speed, perihelion, aphelion, radius, detail, distance, color) {
+    this.planet = {
+      speed: speed,
+      perihelion: perihelion,
+      aphelion: aphelion,
+      radius: radius,
+      detail: detail,
+      distance: distance,
+      color: color
+    }
+    return this.planet;
   }
-  return planet;
 }
 
-const earth = new Planet();
+const earth = new Planet(0.01, 930, 1000, 3, 50, 150, "#FDB813");
 console.log(earth)
 const planetColor = new THREE.Color("#FDB813");
 const planetGeometry = new THREE.IcosahedronGeometry(3, 50);
