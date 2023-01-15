@@ -82,7 +82,9 @@ const Planet = class extends THREE.Object3D {
     });
     this.mesh = new THREE.Mesh(this.geometry, this.material);
     this.mesh.position.set(0, 0, 0);
+    this.mesh.layers.set(1);
     this.mesh.rotation.x = rotation * Math.PI / 180;
+    scene.add(this.mesh);
 
     this.ringGeometry = new THREE.TorusGeometry(radius + 0.2, 0.1, 16, 100);
     this.ringMaterial = new THREE.MeshBasicMaterial({
@@ -95,9 +97,10 @@ const Planet = class extends THREE.Object3D {
     this.ring.rotation.x = Math.PI / 2;
     this.ring.scale.set(1, 0.2, 1);
     this.ring.rotation.z = Math.PI / 2;
-    this.add(this.ring);
+    this.ring.layers.set(1);
+    scene.add(this.ring);
 
-    scene.add(this.mesh);
+    
     return this;
   }
 
