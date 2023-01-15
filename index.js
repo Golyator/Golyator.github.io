@@ -41,7 +41,7 @@ const bloomPass = new UnrealBloomPass(
   0.85
 );
 bloomPass.threshold = 0;
-bloomPass.strength = 1.4; //intensity of glow
+bloomPass.strength = 1; //intensity of glow
 bloomPass.radius = 0.1;
 const bloomComposer = new EffectComposer(renderer);
 bloomComposer.setSize(window.innerWidth, window.innerHeight);
