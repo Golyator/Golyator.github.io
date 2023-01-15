@@ -86,6 +86,12 @@ const Planet = class extends THREE.Object3D {
     scene.add(this.mesh);
     return this;
   }
+  gravitate() {
+    let distance = THREE.Math.lerp(this.perihelion, this.aphelion, Math.sin((Date.now()/30000) * (2 * Math.PI)));
+    this.mesh.position.x = distance * Math.cos((Date.now()/30000) * (2 * Math.PI));
+    this.mesh.position.z = distance * Math.sin((Date.now() / 30000) * (2 * Math.PI));
+    this.mesh.rotation.y += this.speed;
+  }
 }
 const mars = new Planet(0.01, 1381, 1666, 4, 50, 150, "#FDB813", 'mars.jpg', scene, 0);
 planets.push(mars);
@@ -143,9 +149,7 @@ const animate = () => {
   starMesh.rotation.y += 0.0003;
   sphere.rotation.y += 0.001;
   const distance = THREE.Math.lerp(perihelion, aphelion, Math.sin((Date.now()/30000) * (2 * Math.PI)));
-  earth.mesh.position.x = distance * Math.cos((Date.now()/30000) * (2 * Math.PI));
-  earth.mesh.position.z = distance * Math.sin((Date.now() / 30000) * (2 * Math.PI));
-  earth.mesh.rotation.y += earth.speed;
+  earth.gravitate();
   mars.mesh.position.x = distance * Math.cos((Date.now()/30000) * (2 * Math.PI));
   mars.mesh.position.z = distance * Math.sin((Date.now()/30000) * (2 * Math.PI));
 
