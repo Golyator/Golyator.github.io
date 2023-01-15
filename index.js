@@ -64,27 +64,26 @@ scene.add(sphere);
 
 
 //planet
-/*
+
 const Planet = class {
   constructor(speed, perihelion, aphelion, radius, detail, distance, color, texture) {
-    this.color = new THREE.Color(color);
-    this.geometry = new THREE.IcosahedronGeometry(radius, detail);
-    this.material = new THREE.MeshBasicMaterial({
+    this.perihelion = perihelion;
+    this.aphelion = aphelion;
+    this.distance = distance;
+    let geometry = new THREE.IcosahedronGeometry(radius, detail);
+    let material = new THREE.MeshBasicMaterial({
       map: THREE.ImageUtils.loadTexture("texture/" + texture),
       side: THREE.BackSide,
       transparent: true,
     });
-    this.sphere = new THREE.Mesh(this.geometry, this.material);
-    this.sphere.position.set(0, 0, 0);
+    let sphere = new THREE.Mesh(this.geometry, this.material);
+    sphere.position.set(0, 0, 0);
     layers.set(1);
-    scene.add(this.sphere);
+    scene.add(sphere);
   }
-
-  get distance 
 }
 
-const earth = new Planet(0.01, 930, 1000, 3, 50, 150, "#FDB813", 'sun2.jpg');
-console.log(earth)*/
+
 const planetColor = new THREE.Color("#FDB813");
 const planetGeometry = new THREE.IcosahedronGeometry(3, 50);
 const planetMaterial = new THREE.MeshBasicMaterial({
