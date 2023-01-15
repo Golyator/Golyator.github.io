@@ -18,7 +18,7 @@ const far = 2000;
 camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
 camera.position.z = 8;
 camera.position.x = 0;
-camera.position.z = 50;
+camera.position.z = 850;
 scene.add(camera);
 
 //default renderer
@@ -79,7 +79,7 @@ planet.rotation.x =  23.5 * Math.PI/180;
 scene.add(planet);
 
 // galaxy geometry
-const starGeometry = new THREE.SphereGeometry(1020, 164, 164);
+const starGeometry = new THREE.SphereGeometry(4020, 164, 164);
 
 // galaxy material
 const starMaterial = new THREE.MeshBasicMaterial({
@@ -115,8 +115,8 @@ window.addEventListener(
 
 
 
-const perihelion = 93;
-const aphelion = 100;
+const perihelion = 930;
+const aphelion = 1000;
 const orbit = {
   radius: 50,
   speed: 0.01
@@ -140,8 +140,8 @@ const animate = () => {
 };
 
 function onDocumentMouseWheel( event ) {
-  const zoomMax = 580;
-  const zoomMin = 35;
+  const zoomMax = 1980;
+  const zoomMin = 500;
   console.log(camera.position.z)
   camera.position.z = Math.min(Math.max(zoomMin,  camera.position.z - event.wheelDeltaY * 0.05), zoomMax);
 }
