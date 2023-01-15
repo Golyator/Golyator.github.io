@@ -153,5 +153,13 @@ function onDocumentMouseWheel( event ) {
   console.log(camera.position.z)
   camera.position.z = Math.min(Math.max(zoomMin,  camera.position.z - event.wheelDeltaY * 0.5), zoomMax);
 }
+dcoument.addEventListener('gestureend', function(event) {
+  const zoomMax = 280;
+  const zoomMin = 15;
+  console.log(camera.position.z)
+  camera.position.z = Math.min(Math.max(zoomMin,  camera.position.z - event.scale * 0.05), zoomMax);
+}, false);
+
+
 document.addEventListener( 'wheel', onDocumentMouseWheel, false );
 animate();
